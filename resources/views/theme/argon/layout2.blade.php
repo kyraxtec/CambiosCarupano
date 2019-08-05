@@ -15,20 +15,19 @@
   <link type="text/css" href="{{asset("assets/$theme/css/argon.css?v=1.0.0")}}" rel="stylesheet">
 </head>
   <!-- Inicio Body -->
-<body>
-<!-- barra lateral -->
-    @include("theme/$theme/sidebar")
-<!-- ----------------->
+<body class="bg-default">
+
 <!-- Contenido de la pagina -->
     <div class="main-content">
 <!-- Barra superior -->
-@include("theme/$theme/topbar")
-@include("theme/$theme/header")
+@include("theme/$theme/topbar2")
+@include("theme/$theme/header2")
  <!-- Page content -->
- <div class="container-fluid mt--7">
+ <div class="container-fluid mt--8 pb-5">
 @yield('contenido')
 </div><br><br>
 <div class="container">
+  @yield('mensaje')
   @yield('contenido2')
   </div>
 @include("theme/$theme/footer")

@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', 'InicioController@index');
-Route::get('usuarios', 'UsuariosController@index')->name('usuarios');  
+Route::get('/home', 'InicioController@index');
+
+Auth::routes();
+
+Route::get('/', 'LoginController@index')->name('login');
+
+Route::get('/usuarios', 'Admin\UsuariosController@index');
+Route::get('/usuarios/create', 'Admin\UsuariosController@create');
+Route::get('/usuarios/store', 'Admin\UsuariosController@store');
+
+
 
