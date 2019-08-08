@@ -1,4 +1,4 @@
-<footer class="footer fixed-bottom">
+<footer class="fixed-bottom">
     <div class="row align-items-center ">
       <div class="col-xl-6">
         <div class="copyright text-center text-muted">
@@ -6,7 +6,7 @@
         </div>
       </div>
       <div class="col-xl-6">
-        <ul class="nav nav-footer justify-content-center ">
+        <ul class="nav justify-content-center ">
           <li class="nav-item">
             <a href="" class="nav-link" target="_blank">Acerca de Nosotros</a>
           </li>

@@ -15,8 +15,10 @@ class CrearTablaPaises extends Migration
     {
         Schema::create('paises', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamps();
             $table->string('nombre',50)->unique();
             $table->string('bandera',100)->nullable();
+            $table->string('moneda', 5)->nullable();
             $table->charset ='utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
    

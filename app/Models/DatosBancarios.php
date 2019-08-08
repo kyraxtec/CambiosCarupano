@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PerfilUsuario extends Model
+class DatosBancarios extends Model
 {
-
+    //
 }

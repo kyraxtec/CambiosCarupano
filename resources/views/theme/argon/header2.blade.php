@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-body text-center mb-7">
         <div class="row justify-content-center">
-          @yield('mensInicio')
+            @include('flash::message')
         </div>
       </div>
     </div>

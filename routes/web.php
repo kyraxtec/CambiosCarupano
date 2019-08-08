@@ -24,19 +24,23 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::get('/adminhome', 'AdminController@index')->name('adminhome');
     //BANCOS
-    Route::get('/bancos', 'BancosController@index')->name('bankList');
-    Route::get('/bancos/create', 'BancosController@create');
-    Route::get('/bancos/store', 'BancosController@store');
+    Route::resource('bancos', 'BancosController');
 
     //TASAS
-    Route::get('/tasas', 'TasaController@index')->name('ratesList');
-    Route::get('/tasas/create', 'TasaController@create');
-    Route::get('/tasas/store', 'TasaController@store');
+    Route::resource('tasas', 'TasaController');
+    Route::get('tasas/{id}/destroy', [
+        'uses' => 'TasaController@destroy',
+        'as' => 'tasas.destroy'
+    ]);
 
     //USUARIOS
-    Route::get('/usuarios', 'UsuariosController@index')->name('userList');
-    Route::get('/usuarios/perfil', 'PerfilUsuarioController@index')->name('userProfile');
-
+    Route::resource('usuarios', 'UsuariosController');
+    
+    //PERFIL DE USUARIO
+    Route::resource('perfil', 'PerfilUsuarioController');
+    Route::resource('datospersonales', 'DatosPersonalesController');
+    Route::resource('datosbancarios', 'DatosBancariosController');
+    Route::resource('domicilio', 'DomicilioController');
 
 });
 
@@ -45,12 +49,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth']
 
     Route::get('/userhome', 'UserController@index')->name('userhome');
     //BANCOS
-    Route::get('/bancos', 'BancosController@index')->name('bankList');
-    Route::get('/bancos/create', 'BancosController@create');
-    Route::get('/bancos/store', 'BancosController@store');
-
     //USUARIOS
-    Route::get('/usuarios', 'UsuariosController@index')->name('userList');
+
 
 });
 

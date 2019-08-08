@@ -11,20 +11,17 @@ class TablaPaisSeeder extends Seeder
      */
     public function run()
     {
-        {
-            $paises =[
-                'Colombia',
-                'Venezuela',
-                'Chile',
-                'Perú',
-                'EEUU',
-                'Todos'
-            ];
-            foreach($paises as $key => $value){
-                DB::table('paises')->insert([
-                    'nombre'=> $value
-                ]);
-            }
-        }
+        DB::table('paises')->insert([
+
+            ['nombre' => 'Colombia', 'bandera' => null ,'moneda' => 'COP'],
+            ['nombre' => 'Venezuela', 'bandera' => null ,'moneda' => 'BsS'],
+            ['nombre' => 'Chile', 'bandera' => null ,'moneda' => 'CLP'],
+            ['nombre' => 'Perú', 'bandera' => null ,'moneda' => 'PEN'],
+            ['nombre' => 'EEUU', 'bandera' => null ,'moneda' => 'USD'],
+            ['nombre' => 'Todos', 'bandera' => null ,'moneda' => null],
+
+
+    
+        ]);
     }
 }

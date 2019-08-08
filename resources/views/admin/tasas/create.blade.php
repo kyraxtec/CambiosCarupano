@@ -12,29 +12,38 @@
           <div class="col-lg-6 col-md-8">
             <div class="card bg-secondary shadow border-0">
               <div class="card-header bg-transparent pb-5">
-                {!! Form::open() !!}
-                {!! Form::close() !!}
+                {!! Form::open(['route' => 'tasas.store', 'method' => 'POST']) !!}
                   <div class="form-group">
+                     {!! Form::label('pais', 'Pais:') !!}
                     <div class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                      {!! Form::select('pais', $paises, null, ['class' => 'form-control'])!!} 
                       </div>
-                      <input class="form-control" name="nombre"  placeholder="Nombre del Banco" type="text" >
+                      
                     </div>
                   </div>
                   <div class="form-group">
-                      <div class="input-group input-group-alternative mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                        </div>
-                        <input class="form-control" name="prefijo"  placeholder="Prefijo de cuenta" type="text" >
-                      </div>
-                    </div>
-
-                  <div class="text-center">
-                    <input type="submit" Value="Agregar Banco" class="btn btn-primary mt-4">
-                </form>
+                      {!! Form::label('moneda', 'Moneda:') !!}
+                     <div class="input-group input-group-alternative mb-3">
+                       <div class="input-group-prepend">
+                      {!! Form::select('moneda', $monedas, null, ['class' => 'form-control'])!!} 
+                       </div>
+                     </div>
+                   </div>
+                   <div class="form-group">
+                      {!! Form::label('tasa', 'Tasa:') !!}
+                     <div class="input-group input-group-alternative mb-3">
+                       <div class="input-group-prepend">
+                        {!! Form::text('tasa', null, ['class'=>'form-control']) !!}
+                       </div>
+                       
+                     </div>
+                   </div>
+              <div class="text-center">
+                    <input type="submit" Value="Agregar Tasa" class="btn btn-primary mt-4">
               </div>
+              {!! Form::close() !!}
+
             </div>
           </div>
         </div>

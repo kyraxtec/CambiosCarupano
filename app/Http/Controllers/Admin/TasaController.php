@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tasa;
 use App\Models\Pais;
 use App\Models\Moneda;
+use Illuminate\Support\Facades\DB;
 
 class TasaController extends Controller
 {
@@ -17,10 +18,13 @@ class TasaController extends Controller
      */
     public function index()
     {
-        $tasas = Tasa::join('paises', 'tasas.pais', 'paises.id')
-                     ->join('monedas', 'tasas.moneda', 'monedas.id')
-                      ->orderBy('paises.id', 'ASC')->paginate(5);
 
+        $tasas = DB::table('tasas')->select('tasas.id as idTasa', 'tasas.tasa as tasa', 'paises.nombre as pais', 'paises.moneda as pmoneda',
+                                                 'monedas.moneda as moneda')
+                                    ->join('paises', 'tasas.pais', 'paises.id')
+                                    ->join('monedas', 'tasas.moneda', 'monedas.id')
+                                     ->orderBy('paises.id', 'ASC')->paginate(5);
+        //dd($tasas);
         return view('admin/tasas/index')->with('tasas', $tasas);
     }
 
@@ -31,8 +35,8 @@ class TasaController extends Controller
      */
     public function create()
     {
-        $paises = Pais::get()->toArray();
-        $monedas = Moneda::get()->toArray();
+        $paises = Pais::pluck('nombre', 'id');
+        $monedas = Moneda::pluck('moneda', 'id');
         return view('admin/tasas/create', compact('paises', 'monedas'));
     }
 
@@ -47,7 +51,8 @@ class TasaController extends Controller
         $Tasas = new Tasa($request->all());
         $Tasas->save();
 
-        return redirect()->route('rateslist');
+        flash('Tasa registrada')->success();
+        return redirect()->route('tasas.index');
     }
 
     /**
@@ -69,7 +74,12 @@ class TasaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tasa = Tasa::select('tasas.id as idTasa', 'tasas.tasa as tasa', 'paises.nombre as pais', 'monedas.moneda as moneda')
+                            ->join('paises', 'tasas.pais', 'paises.id')
+                            ->join('monedas', 'tasas.moneda', 'monedas.id')
+                            ->where('tasas.id', $id)->get()->toArray();
+                            //dd($tasa);
+        return view('admin/tasas/edit')->with('tasa', $tasa);
     }
 
     /**
@@ -81,7 +91,12 @@ class TasaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tasa = Tasa::find($id);
+        $tasa->tasa = $request->tasa;
+        $tasa->save();
+
+        flash('Tasa actualizada')->success();
+        return redirect()->route('tasas.index');
     }
 
     /**
@@ -92,6 +107,11 @@ class TasaController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $user = Tasa::find($id);
+       $user->delete();
+
+       flash('Tasa eliminada con éxito')->error();
+
+       return redirect()->route('tasas.index');
     }
 }

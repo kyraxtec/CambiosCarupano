@@ -15,6 +15,7 @@ class CrearTablaTasas extends Migration
     {
         Schema::create('tasas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamps();
             $table->unsignedBigInteger('pais');
             $table->foreign('pais')->references('id')->on('paises')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('moneda');

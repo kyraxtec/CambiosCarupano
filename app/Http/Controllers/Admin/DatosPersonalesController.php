@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Secure;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Usuario;
-use App\Http\Requests\ValCrearUsuario;
+use App\Models\DatosPersonales;
+use Illuminate\Support\Facades\Session;
 
-class UsuariosController extends Controller
+class DatosPersonalesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::orderBy('id', 'ASC')->paginate(5);
-        return view('admin/usuarios/index')-> with('usuarios', $usuarios);
+        //
     }
 
     /**
@@ -27,7 +26,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('secure/create');
+        //
     }
 
     /**
@@ -36,15 +35,9 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValCrearUsuario $request)
+    public function store(Request $request)
     {
-        $usuario = new Usuario($request->all());
-        $usuario->password = bcrypt($request->password);
-        $usuario->rol =2;
-        $usuario->save();
-
-        flash('Usuario registrado exitosamente')->success();
-        return redirect()->route('login')->with('mensaje', 'Se ha registrado con exito');
+        //
     }
 
     /**
@@ -66,7 +59,9 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datosp = DatosPersonales::where('usuario', $id)->get()->toArray();
+      
+        return view('admin.usuarios.editarDatosPersonales')->with('datosp', $datosp);
     }
 
     /**
@@ -78,7 +73,22 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datos = DatosPersonales::find($id);
+        $datos->nombre = $request->nombre;
+        $datos->apellido = $request->apellido;
+        $datos->iddoctype = $request->iddoctype;
+        $datos->iddocnum = $request->iddocnum;
+        $datos->save();
+        $datosp = DatosPersonales::where('usuario', session()->get('idUsuario'))->get()->toArray();
+        Session::put(
+           [
+               'nombre' => $datosp[0]['nombre'],
+               'apellido' => $datosp[0]['apellido'],
+               'iddoctype' => $datosp[0]['iddoctype'],
+               'iddocnum' => $datosp[0]['iddocnum']
+           ]);
+        flash('Datos actualizados exitosamente')->success();
+        return redirect()->route('perfil.index');
     }
 
     /**

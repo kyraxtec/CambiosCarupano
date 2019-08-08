@@ -15,6 +15,7 @@ class CrearTablaDatosPersonales extends Migration
     {
         Schema::create('datos_personales', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamps();
              $table->unsignedBigInteger('usuario');
             $table->foreign('usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nombre',20);

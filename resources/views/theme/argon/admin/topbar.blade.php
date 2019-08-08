@@ -10,7 +10,7 @@
                 <img alt="Image placeholder" src="{{asset("assets/$theme/img/theme/kyraxtec-portrait.jpg")}}">
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Hola, {{ session()->get('rol') }} {{ session()->get('nombre') }} {{ session()->get('apellido') }}</span>
+                <span class="mb-0 text-sm  font-weight-bold">Hola, {{ session()->get('rol') }}</span>
               </div>
             </div>
           </a>
@@ -18,7 +18,7 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Bienvenido</h6>
             </div>
-            <a href="/admin/usuarios/perfil" class="dropdown-item">
+            <a href="{{route('perfil.index', session()->get('idUsuario')) }}" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>Perfil</span>
             </a>
@@ -44,3 +44,4 @@
       </ul>
     </div>
   </nav>
+ 

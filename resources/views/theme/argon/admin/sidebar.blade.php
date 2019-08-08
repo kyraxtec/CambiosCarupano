@@ -27,7 +27,7 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Bienvenido</h6>
             </div>
-            <a href="admin/usuarios/perfil" class="dropdown-item">
+            <a href="{{route('perfil.index')}}" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>Perfil</span>
             </a>

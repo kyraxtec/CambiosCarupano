@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\PerfilUsuario;
+use App\Models\DatosPersonales;
 
 class PerfilUsuarioController extends Controller
 {
@@ -15,8 +16,10 @@ class PerfilUsuarioController extends Controller
      */
     public function index()
     {
-        $datos = PerfilUsuario::where('usuario', session()->get('idUsuario'))->get()->toArray();
-       return view('admin.usuarios.perfil')->with('datos', $datos);
+  
+        $datosp = DatosPersonales::where('usuario', session()->get('idUsuario'))->get()->toArray();
+      
+        return view('admin.usuarios.perfil')->with('datosp', $datosp);
     }
 
     /**
@@ -48,7 +51,7 @@ class PerfilUsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -59,7 +62,7 @@ class PerfilUsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -71,7 +74,7 @@ class PerfilUsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

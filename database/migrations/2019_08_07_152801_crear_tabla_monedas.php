@@ -15,8 +15,7 @@ class CrearTablaMonedas extends Migration
     {
         Schema::create('monedas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('pais');
-            $table->foreign('pais')->references('id')->on('paises')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
             $table->string('moneda', 50);
             $table->string('abrev', 5);
             $table->charset ='utf8mb4';

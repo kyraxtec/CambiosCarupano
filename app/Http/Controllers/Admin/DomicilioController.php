@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Secure;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Usuario;
-use App\Http\Requests\ValCrearUsuario;
 
-class UsuariosController extends Controller
+class DomicilioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::orderBy('id', 'ASC')->paginate(5);
-        return view('admin/usuarios/index')-> with('usuarios', $usuarios);
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('secure/create');
+        //
     }
 
     /**
@@ -36,15 +33,9 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValCrearUsuario $request)
+    public function store(Request $request)
     {
-        $usuario = new Usuario($request->all());
-        $usuario->password = bcrypt($request->password);
-        $usuario->rol =2;
-        $usuario->save();
-
-        flash('Usuario registrado exitosamente')->success();
-        return redirect()->route('login')->with('mensaje', 'Se ha registrado con exito');
+        //
     }
 
     /**

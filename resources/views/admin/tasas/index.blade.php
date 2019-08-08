@@ -1,6 +1,6 @@
 @extends("theme.$theme.admin.layout")
 @section('titulo')
-    PANEL DE TASAs
+    PANEL DE TASA
 @endsection
 
 @section('contenido')
@@ -15,6 +15,7 @@
               <table class="table align-items-center table-dark table-flush">
                 <thead class="thead-dark">
                   <tr>
+                    <th scope="col">Id</th>
                     <th scope="col">Pais</th>
                     <th scope="col">Moneda Tasada</th>
                     <th scope="col">Tasa de cambio</th>
@@ -24,10 +25,14 @@
                 <tbody>
                     @foreach ($tasas as $tasa)
                         <tr>
-                            <td>{{ $tasa->nombre }}</td>
+                            <td>{{ $tasa->idTasa }}</td>
+                            <td>{{ $tasa->pais }}</td>
                             <td>{{ $tasa->moneda}}</td>
-                            <td>{{ $tasa->tasa}}</td>
-                            <td></td>
+                            <td>{{ $tasa->tasa}} {{ $tasa->pmoneda}}</td>
+                            <td>
+                              <a href="{{ route('tasas.edit', $tasa->idTasa) }}" onclick="return confirm('Desea actualizar la tasa?')" class="btn btn-warning btn-sm"><span  class="ni ni-settings text-lg"></span></a>
+                            <a href="{{ route('tasas.destroy', $tasa->idTasa) }}" onclick="return confirm('Desea eliminar la tasa?')" class="btn btn-danger btn-sm"><span class="ni ni-fat-remove text-lg"></span></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

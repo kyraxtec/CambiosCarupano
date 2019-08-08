@@ -15,6 +15,7 @@ class CrearTablaRol extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamps();
             $table->string('rol')->unique();
             $table->charset ='utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';

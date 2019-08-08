@@ -45,4 +45,7 @@
 
   <!-- Argon JS -->
   <script src="{{asset("assets/$theme//js/argon.js?v=1.0.0")}}"></script>
+  <script>
+      $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+      </script>
 </body>

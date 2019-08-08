@@ -6,14 +6,14 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-12 col-md-10">
-          <h1 class="display-2 text-white">{{ $datos[0]['nombre'] }} {{ $datos[0]['apellido'] }}</h1>
-            <a href="#!" class="btn btn-info">editar perfil</a>
+          <h1 class="display-2 text-white">{{ session()->get('nombre') }} {{ session()->get('apellido') }}</h1>
+            
           </div>
         </div>
       </div>
     </div><br><br>
     <!-- Page content -->
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--10">
       <div class="row">
         <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
 
@@ -24,7 +24,7 @@
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">Información del usuario</h3>
+                  <h3 class="heading mb-0">Información personal <a href="{{route('datospersonales.edit', session()->get('idUsuario')) }}" onclick="return confirm('Desea actualizar sus datos personales?')" class="btn btn-success btn-sm">editar</a></h3>
                 </div>
 
               </div>
@@ -35,14 +35,14 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="">Nombre</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" disabled placeholder="Username" value="{{ $datos[0]['nombre'] }}">
+                        <label class="form-control-label" for="nombreUsuario">Nombre</label>
+                        <input type="text" id="nombreUsuario" class="form-control form-control-alternative" disabled value="{{ session()->get('nombre') }}">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">Apellido</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative" disabled placeholder="Username" value="{{ $datos[0]['apellido'] }}">
+                        <label class="form-control-label" for="apellidoUsuario">Apellido</label>
+                        <input type="text" id="apellidoUsuario" class="form-control form-control-alternative" disabled  value="{{ session()->get('apellido') }}">
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -55,59 +55,78 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">Tipo de documento</label>
-                        <input type="text" id="input-first-name" class="form-control form-control-alternative" disabled placeholder="First name" value="{{ $datos[0]['iddoctype'] }}">
+                        <label class="form-control-label" for="idDocType">Tipo de documento</label>
+                        <input type="text" id="idDocType" class="form-control form-control-alternative" disabled placeholder="First name" value="{{  session()->get('iddoctype')}}">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">Documento numero </label>
-                        <input type="text" id="input-last-name" class="form-control form-control-alternative" disabled placeholder="Last name" value="{{ $datos[0]['iddocnum'] }}">
+                        <label class="form-control-label" for="idDocNum">Documento numero </label>
+                        <input type="text" id="idDocNum" class="form-control form-control-alternative" disabled placeholder="Last name" value="{{  session()->get('iddocnum') }}">
                       </div>
                     </div>
                   </div>
                 </div>
                 <hr class="my-4" />
                 <!-- Address -->
-                <h6 class="heading-small text-muted mb-4">Información Bancaria</h6>
+                <h4 class="heading  mb-4">Domicilio <a href="#!" class="btn btn-success btn-sm">editar</a></h4>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-address">Address</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                        <label class="form-control-label" for="input-address">Dirección</label>
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="" disabled value="" type="text">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-city">City</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="New York">
+                        <label class="form-control-label" for="input-city">Ciudad</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder=""  disabled value="">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-country">Country</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="United States">
+                        <label class="form-control-label" for="input-country">País</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="" disabled value="">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-country">Postal code</label>
-                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                        <label class="form-control-label" for="input-country">Código postal</label>
+                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" disabled placeholder="">
                       </div>
                     </div>
                   </div>
                 </div>
                 <hr class="my-4" />
-                <!-- Description -->
-                <h6 class="heading-small text-muted mb-4">Acerca de mi</h6>
-                <div class="pl-lg-4">
-                  <div class="form-group">
-                    <label>Acerca de mi</label>
-                    <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                <!-- banca -->
+                <h4 class="heading  mb-4">datos bancarios <a href="#!" class="btn btn-success btn-sm">editar</a></h4>
+
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city">Banco</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder=""  disabled value="">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Tipo de Cuenta</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="" disabled value="">
+                      </div>
+                    </div>
                   </div>
+                  <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-address">Cuenta n°:</label>
+                            <input id="input-address" class="form-control form-control-alternative" placeholder="" disabled value="" type="text">
+                          </div>
+                        </div>
+                      </div>
                 </div>
               </form>
             </div>
