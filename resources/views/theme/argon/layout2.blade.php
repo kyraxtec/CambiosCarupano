@@ -16,20 +16,21 @@
 </head>
   <!-- Inicio Body -->
 <body class="bg-default">
-
+     @include("theme/$theme/mensajes/success")
+<!-- ----------------->
 <!-- Contenido de la pagina -->
-    <div class="main-content">
+<div class="main-content">
 <!-- Barra superior -->
+
 @include("theme/$theme/topbar2")
 @include("theme/$theme/header2")
  <!-- Page content -->
  <div class="container-fluid mt--8 pb-5">
+
 @yield('contenido')
-</div><br><br>
+</div>
 <div class="container">
-  @yield('mensaje')
-  @yield('contenido2')
-  </div>
+ </div>
 @include("theme/$theme/footer")
 </div>
   <!-- Argon Scripts -->
@@ -39,6 +40,7 @@
   <!-- Optional JS -->
   <script src="{{asset("assets/$theme/vendor/chart.js/dist/Chart.min.js")}}"></script>
   <script src="{{asset("assets/$theme//vendor/chart.js/dist/Chart.extension.js")}}"></script>
+
   <!-- Argon JS -->
   <script src="{{asset("assets/$theme//js/argon.js?v=1.0.0")}}"></script>
 </body>

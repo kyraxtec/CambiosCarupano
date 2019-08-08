@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tasa extends Model
 {
-    protected $table = "tasa";
+    protected $table = "tasas";
+    protected $fillable = ['pais', 'moneda', 'tasa'];
+    protected $guarded = ['id'];
 }

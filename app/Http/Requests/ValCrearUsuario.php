@@ -24,17 +24,20 @@ class ValCrearUsuario extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|max:20',
-            'email' => 'required|max:50',
-            'pass' => 'required|max:12|min:10'
+
+            'email' => 'required|max:50|unique:usuarios,email,' . $this->route('id'),
+            'password' => 'required|max:12|min:10',
+            'checkpp' => 'required'
+
         ];
     }
     public function messages()
     {
         return [
-            'nombre.required' => 'El campo nombre es obligatorio',
+
             'email.required' => 'El campo correo es obligatorio',
-            'pass.required' => 'El campo contraseña es obligatorio'
+            'pass.required' => 'El campo contraseña es obligatorio',
+            'checkpp.required' => 'Para registrarse, debe aceptar los términos y condiciones',
         ];
     }
 }

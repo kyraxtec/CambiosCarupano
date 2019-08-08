@@ -1,4 +1,4 @@
-@extends("theme.$theme.layout")
+@extends("theme.$theme.admin.layout")
 @section('titulo')
     PANEL DE USUARIOS
 @endsection

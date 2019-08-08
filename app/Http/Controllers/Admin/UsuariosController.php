@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
-use App\Http\Requests\ValCrearUsuario;
 
 class UsuariosController extends Controller
 {
@@ -27,7 +26,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        return view('admin/usuarios/create');
+        //
     }
 
     /**
@@ -36,13 +35,9 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValCrearUsuario $request)
+    public function store(Request $request)
     {
-       $usuario = new Usuario($request->all());
-        $usuario->pass = bcrypt($request->pass);
-        $usuario->save();
-
-        return redirect()->route('home');
+        //
     }
 
     /**
@@ -53,7 +48,7 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-     
+        //
     }
 
     /**
