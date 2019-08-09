@@ -12,7 +12,7 @@
           <div class="col-lg-6 col-md-8">
             <div class="card bg-secondary shadow border-0">
               <div class="card-header bg-transparent pb-5">
-                {!! Form::open(['route' => ['datospersonales.update', $datosp[0]['id']], 'method' => 'PUT']) !!}
+                {!! Form::open(['route' => ['datospersonales.update', session()->get('idDat')], 'method' => 'PUT']) !!}
                 <div class="pl-lg-4">
                         <div class="row">
                           <div class="col-lg-6">
@@ -20,7 +20,7 @@
                                   {!! Form::label('nombre', 'Nombre') !!}
                                  <div class="input-group input-group-alternative mb-3">
                                    <div class="input-group-prepend">
-                                    {!! Form::text('nombre', $datosp[0]['nombre'], ['class'=>'form-control']) !!}
+                                    {!! Form::text('nombre', session()->get('nombre'), ['class'=>'form-control']) !!}
                                    </div>
                                    
                                  </div>
@@ -31,7 +31,7 @@
                                   {!! Form::label('apellido', 'Apellido') !!}
                                  <div class="input-group input-group-alternative mb-3">
                                    <div class="input-group-prepend">
-                                    {!! Form::text('apellido', $datosp[0]['apellido'], ['class'=>'form-control']) !!}
+                                    {!! Form::text('apellido', session()->get('apellido'), ['class'=>'form-control']) !!}
                                    </div>
                                    
                                  </div>
@@ -44,7 +44,7 @@
                                   {!! Form::label('iddoctype', 'Tipo de Documento') !!}
                                  <div class="input-group input-group-alternative mb-3">
                                    <div class="input-group-prepend">
-                                    {!! Form::text('iddoctype', $datosp[0]['iddoctype'], ['class'=>'form-control']) !!}
+                                    {!! Form::text('iddoctype', session()->get('iddoctype'), ['class'=>'form-control']) !!}
                                    </div>
                                    
                                  </div>
@@ -55,7 +55,7 @@
                                   {!! Form::label('iddocnum', 'N° Documento') !!}
                                  <div class="input-group input-group-alternative mb-3">
                                    <div class="input-group-prepend">
-                                    {!! Form::text('iddocnum', $datosp[0]['iddocnum'], ['class'=>'form-control']) !!}
+                                    {!! Form::text('iddocnum', session()->get('iddocnum'), ['class'=>'form-control']) !!}
                                    </div>
                                    
                                  </div>

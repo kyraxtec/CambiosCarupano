@@ -17,12 +17,8 @@ class PerfilUsuarioController extends Controller
      */
     public function index()
     {
-  
-        $datosp = DatosPersonales::where('usuario', session()->get('idUsuario'))->get()->toArray();
-        $datosd = Domicilio::select('domicilios.*', 'paises.nombre as paisd')->where('usuario', session()->get('idUsuario'))->
-        join('paises', 'domicilios.pais', 'paises.id')->get()->toArray();
-      
-        return view('admin.usuarios.perfil', compact('datosp', 'datosd'));
+     
+        return view('admin.usuarios.perfil');
     }
 
     /**

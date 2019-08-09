@@ -18,11 +18,11 @@ class CrearTablaDomicilios extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('usuario');
             $table->foreign('usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('pais');
+            $table->unsignedBigInteger('pais')->nullable();
             $table->foreign('pais')->references('id')->on('paises')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('ciudad', 50);
-            $table->string('codigo_postal', 5);
-            $table->string('direccion', 100);
+            $table->string('ciudad', 50)->nullable();
+            $table->string('codigo_postal', 5)->nullable();
+            $table->string('direccion', 100)->nullable();
 
 
 

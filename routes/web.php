@@ -22,7 +22,12 @@ Route::get('/secure/store', 'Secure\UsuariosController@store');
 //RUTAS MODO ADMINISTRADOR
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function(){
 
+
     Route::get('/adminhome', 'AdminController@index')->name('adminhome');
+
+    //PAISES
+    Route::resource('paises', 'PaisController');
+
     //BANCOS
     Route::resource('bancos', 'BancosController');
     Route::get('bancos/{id}/destroy', [
@@ -50,7 +55,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 //RUTAS MODO USUARIO
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth'], function(){
 
-    Route::get('/userhome', 'UserController@index')->name('userhome');
+    Route::get('/usershome', 'UserController@index')->name('usershome');
     //BANCOS
     //USUARIOS
 

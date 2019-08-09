@@ -24,7 +24,7 @@
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="heading mb-0">Información personal <a href="{{route('datospersonales.edit', session()->get('idUsuario')) }}" onclick="return confirm('Desea actualizar sus datos personales?')" class="btn btn-success btn-sm">editar</a></h3>
+                  <h3 class="heading mb-0">Información personal <a href="{{route('datospersonales.edit', session()->get('idDat')) }}" onclick="return confirm('Desea actualizar sus datos personales?')" class="btn btn-success btn-sm">editar</a></h3>
                 </div>
 
               </div>

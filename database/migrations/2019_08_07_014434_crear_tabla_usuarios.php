@@ -20,8 +20,6 @@ class CrearTablaUsuarios extends Migration
             $table->string('password');
             $table->unsignedBigInteger('rol');
             $table->foreign('rol')->references('id')->on('roles');
-            $table->unsignedBigInteger('pais');
-            $table->foreign('pais')->references('id')->on('paises')->onDelete('cascade')->onUpdate('cascade');
             $table->charset ='utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
         });

@@ -18,7 +18,7 @@ class MidRedController extends Controller
             return redirect('/admin/adminhome');
         }
         else {
-            return view('/users/usershome');
+            return redirect('/user/usershome');
         }
     }
 

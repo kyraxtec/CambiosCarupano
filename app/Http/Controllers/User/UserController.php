@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Tasa;
 
 class UserController extends Controller
 {
@@ -14,8 +15,11 @@ class UserController extends Controller
      */
     public function index()
     {
-                //dd(session()->all());
-                return view('/users/users/inicio');
+        $tasas = Tasa::join('paises', 'tasas.pais', 'paises.id' )
+        ->join('monedas', 'tasas.moneda', 'monedas.id')
+        ->whereIn('tasas.pais', [session()->get('pais'), 6])->get()->toArray();
+
+        return view('/users/users/inicio', compact('tasas'));
     }
 
 

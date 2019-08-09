@@ -42,7 +42,7 @@
                                   {!! Form::label('codigopl', 'Código Postal') !!}
                                  <div class="input-group input-group-alternative mb-3">
                                    <div class="input-group-prepend">
-                                    {!! Form::text('codigopl', session()->get('codigopl') , ['class'=>'form-control']) !!}
+                                    {!! Form::text('codigopl', 00000 , ['class'=>'form-control']) !!}
                                    </div>
                                    
                                  </div>

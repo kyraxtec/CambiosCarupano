@@ -10,7 +10,7 @@
                 <img alt="Image placeholder" src="{{asset("assets/$theme/img/theme/kyraxtec-portrait.jpg")}}">
               </span>
               <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm  font-weight-bold">Hola, {{ session()->get('rol') }}</span>
+                <span class="mb-0 text-sm  font-weight-bold">Hola, {{ session()->get('rol') }} {{ session()->get('emailUsuario') }}</span>
               </div>
             </div>
           </a>

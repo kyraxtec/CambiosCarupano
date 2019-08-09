@@ -15,7 +15,6 @@ class TablaDatosPersonalesSeeders extends Seeder
             'usuario' => 1,
             'nombre' => 'John',
             'apellido' => 'Doe',
-            'fechanac' => '1970/01/01',
             'iddoctype' => 'V',
             'iddocnum' => '12345678998'
               ]);
@@ -24,7 +23,6 @@ class TablaDatosPersonalesSeeders extends Seeder
             'usuario' => 2,
             'nombre' => 'Jane',
             'apellido' => 'Doe',
-            'fechanac' => '1980/08/08',
             'iddoctype' => 'E',
             'iddocnum' => '89987654321'
               ]);             

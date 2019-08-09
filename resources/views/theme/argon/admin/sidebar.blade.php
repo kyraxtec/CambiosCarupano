@@ -82,34 +82,80 @@
         </form>
         <!-- Navigation -->
         <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="/admin/adminhome">
+                  <i class="ni ni-tv-2 text-primary"></i> <b>Inicio</b> 
+                </a>
+              </li>
+              </li>
+            <li class="nav-item bg-primary text-white">            
+                <h6 class="navbar-heading text-white text-center">Transacciones</h6>               
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-primary" href="#">
+                    <i class="ni ni-world-2 text-primary"></i><b>Calculadora</b>
+                  </a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link text-primary" href="#">
+                  <i class="ni ni-world-2 text-primary"></i><b>Transferencias</b>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-primary" href="#">
+                    <i class="ni ni-world-2 text-primary"></i><b>Historial de Transferencias</b>
+                  </a>
+                </li>
+
+          <li class="nav-item bg-primary text-white">            
+              <h6 class="navbar-heading text-white text-center">Configuraciones</h6>             
+            </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/adminhome">
-              <i class="ni ni-tv-2 text-primary"></i> Inicio
-            </a>
-          </li>
-          </li>
+              <a class="nav-link text-primary" href="/admin/paises">
+                <i class="ni ni-world-2 text-primary"></i><b>Paises</b>
+              </a>
+            </li>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/usuarios">
-              <i class="ni ni-single-02 text-yellow"></i> Usuarios
+            <a class="nav-link text-primary" href="/admin/usuarios">
+              <i class="ni ni-single-02 text-primary"></i><b>Usuarios</b>
             </a>
           </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/admin/bancos">
-            <i class="ni ni-single-02 text-yellow"></i> Bancos
+          <a class="nav-link text-primary" href="/admin/bancos">
+            <i class="ni ni-shop text-primary"></i><b>Bancos</b> 
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/admin/monedas">
-            <i class="ni ni-single-02 text-yellow"></i> Monedas
+          <a class="nav-link text-primary" href="/admin/monedas">
+            <i class="ni ni-money-coins text-primary"></i><b>Monedas</b> 
           </a>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/tasas">
-              <i class="ni ni-single-02 text-yellow"></i> Tasas
+          <li class="nav-item text-primary">
+            <a class="nav-link text-primary" href="/admin/tasas">
+              <i class="ni ni-money-coins text-primary"></i> <b>Tasas</b>
             </a>
           </li>
         </li>
-        </ul>
+
+        <li class="nav-item bg-primary text-white">            
+            <h6 class="navbar-heading text-white text-center">Soporte</h6>               
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-primary" href="#">
+                <i class="ni ni-support-16 text-primary"></i><b>Informacion de inicio</b>
+              </a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link text-primary" href="#">
+              <i class="ni ni-support-16 text-primary"></i><b>Reclamos</b>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-primary" href="#">
+                <i class="ni ni-bulb-61 text-primary"></i><b>Sugerencias</b>
+              </a>
+            </li>
+          </ul>
         <!-- Divider -->
       </div>
     </div>

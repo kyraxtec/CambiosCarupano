@@ -59,9 +59,8 @@ class DatosPersonalesController extends Controller
      */
     public function edit($id)
     {
-        $datosp = DatosPersonales::where('usuario', $id)->get()->toArray();
       
-        return view('admin.usuarios.editarDatosPersonales')->with('datosp', $datosp);
+        return view('admin.usuarios.editarDatosPersonales');
     }
 
     /**
