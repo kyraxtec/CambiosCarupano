@@ -1,7 +1,7 @@
 @extends("theme.$theme.admin.layout")
 @section('contenido')
  <!-- Mask -->
-      <span class="mask bg-gradient-default opacity-8"></span>
+      <span class=" bg-gradient-default opacity-8"></span>
       <!-- Header container -->
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
@@ -48,7 +48,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Correo eléctronico</label>
-                        <input type="email" id="input-email" class="form-control form-control-alternative" disabled placeholder="{{ session()->get('emailUsuario')}}">
+                        <input type="email" id="input-email" class="form-control form-control-alternative" disabled value="{{ session()->get('emailUsuario') }}">
                       </div>
                     </div>
                   </div>
@@ -56,46 +56,46 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="idDocType">Tipo de documento</label>
-                        <input type="text" id="idDocType" class="form-control form-control-alternative" disabled placeholder="First name" value="{{  session()->get('iddoctype')}}">
+                        <input type="text" id="idDocType" class="form-control form-control-alternative" disabled  value="{{ session()->get('iddoctype') }}">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="idDocNum">Documento numero </label>
-                        <input type="text" id="idDocNum" class="form-control form-control-alternative" disabled placeholder="Last name" value="{{  session()->get('iddocnum') }}">
+                        <input type="text" id="idDocNum" class="form-control form-control-alternative" disabled  value="{{ session()->get('iddocnum') }}">
                       </div>
                     </div>
                   </div>
                 </div>
                 <hr class="my-4" />
                 <!-- Address -->
-                <h4 class="heading  mb-4">Domicilio <a href="#!" class="btn btn-success btn-sm">editar</a></h4>
+                <h4 class="heading  mb-4">Domicilio <a href="{{route('domicilios.edit', session()->get('idDom')) }}" class="btn btn-success btn-sm">editar</a></h4>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-address">Dirección</label>
-                        <input id="input-address" class="form-control form-control-alternative" placeholder="" disabled value="" type="text">
+                        <label class="form-control-label" for="direccion">Dirección</label>
+                        <input id="direccion" class="form-control form-control-alternative" placeholder="" disabled value="{{ session()->get('direccion') }}" type="text">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-city">Ciudad</label>
-                        <input type="text" id="input-city" class="form-control form-control-alternative" placeholder=""  disabled value="">
+                        <label class="form-control-label" for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" class="form-control form-control-alternative" placeholder=""  disabled value="{{ session()->get('ciudad') }}">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-country">País</label>
-                        <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="" disabled value="">
+                        <label class="form-control-label" for="pais">País</label>
+                        <input type="text" id="pais" class="form-control form-control-alternative" placeholder="" disabled value="{{ session()->get('paisd') }}">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-country">Código postal</label>
-                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" disabled placeholder="">
+                        <label class="form-control-label" for="codigopl">Código postal</label>
+                        <input type="number" id="codigopl" class="form-control form-control-alternative" disabled value="{{ session()->get('codigopl') }}">
                       </div>
                     </div>
                   </div>

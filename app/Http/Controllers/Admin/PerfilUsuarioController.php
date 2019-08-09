@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\PerfilUsuario;
 use App\Models\DatosPersonales;
+use App\Models\Domicilio;
 
 class PerfilUsuarioController extends Controller
 {
@@ -18,8 +19,10 @@ class PerfilUsuarioController extends Controller
     {
   
         $datosp = DatosPersonales::where('usuario', session()->get('idUsuario'))->get()->toArray();
+        $datosd = Domicilio::select('domicilios.*', 'paises.nombre as paisd')->where('usuario', session()->get('idUsuario'))->
+        join('paises', 'domicilios.pais', 'paises.id')->get()->toArray();
       
-        return view('admin.usuarios.perfil')->with('datosp', $datosp);
+        return view('admin.usuarios.perfil', compact('datosp', 'datosd'));
     }
 
     /**

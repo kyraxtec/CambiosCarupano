@@ -15,7 +15,9 @@ class BancosController extends Controller
      */
     public function index()
     {
-        $bancos = Banco::orderBy('id', 'ASC')->paginate(5);
+        $bancos = Banco::select('bancos.*', 'paises.nombre as pais')
+                        ->join('paises', 'bancos.pais', 'paises.id')->orderBy('id', 'ASC')->paginate(5);
+     
         return view('admin/bancos/index')->with('bancos', $bancos);
     }
 

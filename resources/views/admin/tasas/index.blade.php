@@ -30,7 +30,7 @@
                             <td>{{ $tasa->moneda}}</td>
                             <td>{{ $tasa->tasa}} {{ $tasa->pmoneda}}</td>
                             <td>
-                              <a href="{{ route('tasas.edit', $tasa->idTasa) }}" onclick="return confirm('Desea actualizar la tasa?')" class="btn btn-warning btn-sm"><span  class="ni ni-settings text-lg"></span></a>
+                            <a href="{{ route('tasas.edit', $tasa->idTasa) }}" onclick="return confirm('Desea actualizar la tasa?')" class="btn btn-warning btn-sm"><span  class="ni ni-settings text-lg"></span></a>
                             <a href="{{ route('tasas.destroy', $tasa->idTasa) }}" onclick="return confirm('Desea eliminar la tasa?')" class="btn btn-danger btn-sm"><span class="ni ni-fat-remove text-lg"></span></a>
                             </td>
                         </tr>

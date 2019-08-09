@@ -25,7 +25,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('/adminhome', 'AdminController@index')->name('adminhome');
     //BANCOS
     Route::resource('bancos', 'BancosController');
-
+    Route::get('bancos/{id}/destroy', [
+        'uses' => 'BancosController@destroy',
+        'as' => 'bancos.destroy'
+    ]);
     //TASAS
     Route::resource('tasas', 'TasaController');
     Route::get('tasas/{id}/destroy', [
@@ -40,7 +43,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::resource('perfil', 'PerfilUsuarioController');
     Route::resource('datospersonales', 'DatosPersonalesController');
     Route::resource('datosbancarios', 'DatosBancariosController');
-    Route::resource('domicilio', 'DomicilioController');
+    Route::resource('domicilios', 'DomicilioController');
 
 });
 

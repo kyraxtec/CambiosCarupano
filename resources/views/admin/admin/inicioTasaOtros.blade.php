@@ -39,38 +39,6 @@ PAGINA PRINCIPAL
 
 @endforeach
 </div>
-<br>
-<div class="col-lg-12 card bg-gradient-default shadow">
-    <div class="card-header bg-transparent">
-      <div class="row align-items-center">
-        <div class="col">
-          <h2 class="text-white mb-0">Tasas en otros países </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-<br>
- <div class="row">
-    <div class="col-lg-2 card ">
-        <a href="" name='Venezuela'><img src="{{asset("assets/$theme/img/flags/venezuela.png")}}" width="100%">
-    </div></a>
-    <div class="col-lg-2 card ">
-        <img src="{{asset("assets/$theme/img/flags/colombia.png")}}" width="100%">
-    </div>
-    <div class="col-lg-2 card ">
-        <img src="{{asset("assets/$theme/img/flags/chile.png")}}" width="100%">
-    </div>
-    <div class="col-lg-2 card ">
-        <img src="{{asset("assets/$theme/img/flags/peru.png")}}" width="100%">
-    </div>
-    <div class="col-lg-2 card ">
-        <img src="{{asset("assets/$theme/img/flags/eeuu.png")}}" width="100%">
-    </div>
-
-
-
-
-  </div>
 @endsection
 @section('contenido2')
 

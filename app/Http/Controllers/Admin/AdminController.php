@@ -9,6 +9,7 @@ use App\Models\Pais;
 use App\Models\PerfilUsuario;
 use Illuminate\Support\Facades\Session;
 use App\Models\DatosPersonales;
+use App\Models\Domicilio;
 
 class AdminController extends Controller
 {
@@ -19,14 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-         $datosp = DatosPersonales::where('usuario', session()->get('idUsuario'))->get()->toArray();
-         Session::put(
-            [
-                'nombre' => $datosp[0]['nombre'],
-                'apellido' => $datosp[0]['apellido'],
-                'iddoctype' => $datosp[0]['iddoctype'],
-                'iddocnum' => $datosp[0]['iddocnum']
-            ]);
+
 
          $tasas = Tasa::join('paises', 'tasas.pais', 'paises.id' )
                      ->join('monedas', 'tasas.moneda', 'monedas.id')
