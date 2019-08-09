@@ -13,7 +13,7 @@ class CrearTablaDomicilios extends Migration
      */
     public function up()
     {
-        Schema::create('Domicilios', function (Blueprint $table) {
+        Schema::create('domicilios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('usuario');
